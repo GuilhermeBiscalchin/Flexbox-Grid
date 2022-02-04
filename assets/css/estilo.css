@@ -1,0 +1,21 @@
+:root{
+--corpo:#1D232A;
+--fonte:#FFFFFF;
+--cabecalhoMobile:#15191c;
+--sombras:0px 4px 4px rgba(0, 0, 0, 0.16);
+}
+
+body{
+    background-color:var(--corpo);
+    font-family: 'Open Sans',sans-serif;
+    color:var(--fonte) ;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cabecalhoMobile);
+    padding: 8px 16px;
+    box-shadow:var(--sombras) ;
+}

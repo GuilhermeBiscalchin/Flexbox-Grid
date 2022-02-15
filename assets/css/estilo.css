@@ -3,11 +3,19 @@
 --fonte:#FFFFFF;
 --cabecalhoMobile:#15191c;
 --sombras:0px 4px 4px rgba(0, 0, 0, 0.16);
+--fonteAlternativa:#95999C;
+--cartao:#2C343A;
+--botao:#0480DC;
+}
+
+@font-face {
+    font-family: 'icones';
+    src: url(../font/icones.ttf);
 }
 
 body{
     background-color:var(--corpo);
-    font-family: 'Open Sans',sans-serif;
+    font-family: 'Open Sans','icones',sans-serif;
     color:var(--fonte) ;
 }
 
@@ -19,3 +27,192 @@ body{
     padding: 8px 16px;
     box-shadow:var(--sombras) ;
 }
+
+.cabecalho__menu i::before{
+    content: '\e904';
+    font-size: 24px;
+}
+
+.cabecalho__notificacao i::before{
+    content: '\e906';
+    font-size: 24px;
+}
+
+.cabecalho__logo{
+    width: 40px;
+}
+
+.menu-lateral{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cabecalhoMobile);
+    width: 75vw;
+    height: 100vh;
+
+    /*para esconder o menu, funcionar apenas com o click' */
+    position: absolute;
+    left: -100vw;
+    transition: .25s;
+    z-index: 99;
+}
+
+/*Criando a classe para remover o menu lateral. */
+
+.menu-lateral--ativo{
+    left: 0;
+    transition: .25s;
+}
+
+.menu-lateral__logo{
+    width: 110px;
+    align-self: center;
+    padding: 16px;
+}
+
+.menu__lateral__link{
+    height: 64px;
+    color: var(--fonteAlternativa);
+    padding-left: 64px;
+    display: flex;
+    align-items: center;
+}
+
+.menu__lateral__link--ativo{
+    color: var(--fonte);
+    padding-left: 56px;
+    border-left: 8px solid var(--fonte);
+}
+
+.menu__lateral__link::before{
+    content: '';
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    position: absolute;
+    left: 24px;
+}
+
+.menu__lateral__link--inicio::before{
+    content: '\e902';
+}
+
+.menu__lateral__link--videos::before{
+    content: '\e90e';
+}
+.menu__lateral__link--picos::before{
+    content: '\e909';
+}
+.menu__lateral__link--integrantes::before{
+    content: '\e903';
+}
+.menu__lateral__link--camisas::before{
+    content: '\e900';
+}
+.menu__lateral__link--pinturas::before{
+    content: '\e90a';
+}
+
+/* Estilizando o main*/
+
+.principal{
+    padding: 24px 16px;
+    display: grid;
+    gap:16px;
+}
+
+.titulo-pagina{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.titulo-secao{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.cartao{
+    width: 100%;
+    border-radius: 15px;
+    /*Qualquer coisa que passar do cartão para esconder*/
+    overflow: hidden;
+    background-color:var(--cartao) ;
+}
+
+.cartao--destaque{
+    margin-bottom: 16px;
+}
+
+.cartao__conteudo{
+    padding: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    /*Fazer o espaçamento com o grid*/
+    gap: 8px;
+}
+
+.cartao__destaque{
+    grid-column: span 2;
+}
+
+.cartao__titulo{
+    font-size: 1.2rem;
+    font-weight: 700;
+    grid-column: span 2;
+}
+
+.cartao__perfil{
+    color: var(--fonteAlternativa);
+    font-size: 0.9rem;
+    grid-column: span 2;
+}
+
+.cartao__info{
+    display: flex;
+    align-items: center;
+    color: var(--fonteAlternativa);
+}
+
+.cartao__info--tempo::before{
+    content: '\e90c';
+    margin-right: 8px;
+}
+
+.cartao__info--visualizacao::before{
+    content: '\e90f';
+    margin-right: 8px;
+}
+
+.cartao__botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--botao);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+
+    /* Para alinhar a imagem do botão padrão*/
+    justify-self: flex-end;
+}
+
+.cartao__botao--play::before{
+    content: '\e90b';
+    font-size: 24px;
+}
+
+.cartao__botao--destaque{
+    width: 100%;
+    grid-column: span 2;
+}
+
+.cartao__botao--destaque::before{
+    margin-right: 8px;
+}
+
+.secao{
+    display: grid;
+    gap: 16px;
+}
+
